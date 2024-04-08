@@ -1,4 +1,5 @@
 
+import Category from "@/components/category/category";
 import HomePageLayout from "@/layout/_homeLayout";
 import ActivatePage from "@/pages/auth/activate";
 import ForgotPassowordPage from "@/pages/auth/forgot-password";
@@ -15,26 +16,31 @@ export const router = createBrowserRouter([
     path: "/",
     element: <HomePageLayout />,
     children: [
-      {
-        path: "/login",
-        element: <LoginPage />,
-      },
-      {
-        path: "/register",
-        element: <RegisterPage />,
-      },
-      {
-        path: "/activate",
-        element: <ActivatePage />,
-      },
-      {
-        path: "/forgot-password",
-        element: <ForgotPassowordPage />,
-      },
-      {
-        path: "/reset-password",
-        element: <ResetPasswordPage />,
-      }
+     {
+      path:"/:category",
+      element:<Category/>
+     }
+
     ]
   },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+  },
+  {
+    path: "/activate",
+    element: <ActivatePage />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassowordPage />,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPasswordPage />,
+  }
 ]);

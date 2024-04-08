@@ -1,27 +1,12 @@
-import { getCategories } from "@/services/dashbaord"
+import { useCategory } from "@/hooks/useCategory"
 import { HeartIcon, SearchIcon, ShoppingBagIcon, User2Icon } from "lucide-react"
-import { useEffect, useState } from "react"
-
-
-
-
-
+import NavBarCategories from "./navbar-categories"
 
 
 const Navbar = () =>
 {
-    const [c, setC] = useState();
-    useEffect(() =>
-    {
-        const getc = async () =>
-        {
-            const data = await getCategories()
-            console.log(data)
-            setC(data)
-        }
-        getc()
-    }, [])
 
+    const{ data :  categoryData} = useCategory()
     return (
         <header>
             <nav className=" flex space-x-12 md:px-6 py-10 items-center">
@@ -38,6 +23,7 @@ const Navbar = () =>
                     <User2Icon />
                 </div>
             </nav>
+                <NavBarCategories data={categoryData}/>
         </header>
     )
 }
