@@ -1,11 +1,12 @@
 
-import Category from "@/components/category/category";
 import HomePageLayout from "@/layout/_homeLayout";
 import ActivatePage from "@/pages/auth/activate";
 import ForgotPassowordPage from "@/pages/auth/forgot-password";
 import LoginPage from "@/pages/auth/login";
 import RegisterPage from "@/pages/auth/register";
 import ResetPasswordPage from "@/pages/auth/reset-password";
+import Category from "@/pages/category/category";
+import HomePage from "@/pages/home/home-page";
 import
 {
   createBrowserRouter,
@@ -16,11 +17,20 @@ export const router = createBrowserRouter([
     path: "/",
     element: <HomePageLayout />,
     children: [
-     {
-      path:"/:category",
-      element:<Category/>
-     }
-
+      {
+        path: ":category/:cid",
+        element: <Category />,
+        children: [
+          {
+            path: ":product/:pid",
+            element: <h1>fsfsf</h1>
+          }
+        ]
+      },
+      {
+        path: "",
+        element: <HomePage />
+      }
     ]
   },
   {

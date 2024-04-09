@@ -6,10 +6,10 @@ import NavBarCategories from "./navbar-categories"
 const Navbar = () =>
 {
 
-    const{ data :  categoryData} = useCategory()
+    const { data: categoryData } = useCategory()
     return (
         <header>
-            <nav className=" flex space-x-12 md:px-6 py-10 items-center">
+            <nav className=" flex  md:space-x-12 md:px-12 py-6  px-2 items-center border-b-2">
                 <h1>SastoMasto</h1>
                 <div className=" relative flex flex-1 items-center">
                     <SearchIcon className=" translate-x-[40px] text-slate-500" />
@@ -23,7 +23,7 @@ const Navbar = () =>
                     <User2Icon />
                 </div>
             </nav>
-                <NavBarCategories data={categoryData}/>
+            <NavBarCategories data={categoryData} />
         </header>
     )
 }

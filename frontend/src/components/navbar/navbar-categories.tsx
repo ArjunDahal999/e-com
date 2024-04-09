@@ -1,28 +1,43 @@
-import { ICategories } from "@/types/categories"
-import { NavLink } from "react-router-dom"
 
-const NavBarCategories = ({data}:{data?:ICategories[]}) => {
+import { NavLink } from "react-router-dom";
+import { LoadingSpinner } from "../ui/spinner";
+import { ICategory } from "@/types/products";
 
-    console.log({data})
-  return (
-<nav >
-    <ul className=" flex justify-center gap-x-10 ">
-     <NavLink   to={'/'} >
-      {({ isActive }) => (
-                <li className={isActive ? " text-blue-500 font-bold" : ""}>Home</li>
-            )}
-      </NavLink>
-    {data && data?.map((e)=>(
-           <NavLink key={e.id}  to={`/${e.name}`}>
-                {({ isActive }) => (
-                    <li className={isActive ? " text-blue-500 font-bold" : ""}>{e.name}</li>
-                )}
-             </NavLink>
-    ))}
-    </ul>
-
-</nav>
-  )
+interface NavBarCategoriesProps
+{
+  data?: ICategory[];
 }
 
-export default NavBarCategories
+const NavBarCategories: React.FC<NavBarCategoriesProps> = ({ data }) =>
+{
+  return (
+    <nav>
+      <ul className="flex justify-center gap-x-10 pt-4 text-[1.1rem] max-sm:hidden">
+        {!data ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <NavLink to="/">
+              {({ isActive }) => (
+                <li className={isActive ? "text-blue-500 font-bold" : ""}>
+                  Home
+                </li>
+              )}
+            </NavLink>
+            {data.map((category) => (
+              <NavLink key={category.id} to={`/${category.name}/${category.id}`}>
+                {({ isActive }) => (
+                  <li className={isActive ? "text-blue-500 font-bold" : ""}>
+                    {category.name}
+                  </li>
+                )}
+              </NavLink>
+            ))}
+          </>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+export default NavBarCategories;
