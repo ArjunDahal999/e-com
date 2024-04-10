@@ -10,13 +10,12 @@ const Product = ({ productId }: { productId: string }) =>
     const { addToCart } = useCartStore()
     const handelAddToCart = () =>
     {
-        alert('dfdf')
         addToCart(productData!)
     }
-    // if (isFetching)
-    // {
-    //     return <div className=" h-[80vh] flex justify-center items-center"><LoadingSpinner /></div>
-    // }
+    if (isFetching)
+    {
+        return <div className=" h-[80vh] flex justify-center items-center"><LoadingSpinner /></div>
+    }
     return (
         <div className=' flex items-center gap-x-[15vw]  h-[70vh] justify-center  pt-20'>
             <div className=" space-y-6">

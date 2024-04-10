@@ -6,7 +6,7 @@ import { useCartStore } from "@/store/cart-store"
 
 const Navbar = () =>
 {
-    const { productData } = useCartStore()
+    const { productsData } = useCartStore()
     const { data: categoryData } = useCategory()
     return (
         <header>
@@ -21,7 +21,7 @@ const Navbar = () =>
                 <div className=" flex gap-x-6">
                     <div className=" relative">
                         <div className=" absolute p-2 top-[-16px] right-[-14px] w-5 h-5 text-white flex justify-center items-center bg-red-500 rounded-full">
-                            <h1 className=" font-bold ">{productData.length}</h1>
+                            <h1 className=" font-bold ">{productsData?.length}</h1>
                         </div>
                         <ShoppingBagIcon />
                     </div>

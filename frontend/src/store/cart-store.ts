@@ -4,30 +4,35 @@ import { IProduct } from '@/types';
 
 interface UserCartState
 {
-    productData: IProduct[];
+    productsData: IProduct[];
     addToCart: (productData: IProduct) => void;
-    removeFromCart: (productData: IProduct) => void;
-
 }
 
 export const useCartStore = create<UserCartState>()(
     devtools(
         persist(
             (set, get) => ({
-                productData: [],
+                productsData: [],
                 addToCart: (productData: IProduct) =>
                 {
-                    set((state) => ({
-                        productData: [...state.productData, productData],
-                    }));
-                },
-                removeFromCart: (productData: IProduct) =>
-                {
-                    set((state) => ({
-                        productData: state.productData.filter(
-                            (product) => product.id !== productData.id
-                        ),
-                    }));
+                    const currentProducts = get().productsData;
+                    const doesProductExist = currentProducts.find((p)=>p.id == productData.id)    
+                    if(doesProductExist)
+                        {
+                            set((state) => ({
+                                productsData: state.productsData.filter((p)=>p.id != productData.id),
+                    
+                            }));
+
+                            console.log(currentProducts);
+                        }
+                        else{
+                            set((state) => ({
+                        
+                                productsData: [...state.productsData, productData],
+                            }));
+                        }
+
                 },
 
             }),
