@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import Billboard from "./bilboard"
-import { useProducts, useProductsFilter } from "@/hooks/useProducts"
 import ProductSection from "@/components/product/product-section"
 import { LoadingSpinner } from "@/components/ui/spinner"
 import { useEffect, useState } from "react"
@@ -13,7 +12,7 @@ const Category = () =>
     const { category, product, pid, cid } = useParams()
     const [isLoading, setIsLoading] = useState(false)
     const [productData, setProductData] = useState<IProduct[]>()
-
+    console.log(category, product, pid, cid)
 
     useEffect(() =>
     {
@@ -25,19 +24,22 @@ const Category = () =>
         }
         getProductFromAPI()
         setIsLoading(false)
-    }, [cid])
+    }, [cid, product, pid, category])
+
+
+
 
     if (category && cid && !product && !pid)
         return (
             <>
                 <Billboard categoryId={cid} />
-                {isLoading ? <LoadingSpinner /> : <ProductSection productsData={productData} />}
+                {isLoading ? <LoadingSpinner /> : <ProductSection title="Our Products" productsData={productData} />}
             </>
         )
     if (category && cid && product && pid)
         return (
             <>
-              <Product productId={pid} />
+                <Product productId={pid} />
             </>
         )
 

@@ -1,11 +1,12 @@
 import { useCategory } from "@/hooks/useCategory"
 import { HeartIcon, SearchIcon, ShoppingBagIcon, User2Icon } from "lucide-react"
 import NavBarCategories from "./navbar-categories"
+import { useCartStore } from "@/store/cart-store"
 
 
 const Navbar = () =>
 {
-
+    const { productData } = useCartStore()
     const { data: categoryData } = useCategory()
     return (
         <header>
@@ -18,8 +19,12 @@ const Navbar = () =>
                         className=" w-full indent-10 bg-slate-400/20 py-2 rounded-full" type="text" />
                 </div>
                 <div className=" flex gap-x-6">
-                    <HeartIcon />
-                    <ShoppingBagIcon />
+                    <div className=" relative">
+                        <div className=" absolute p-2 top-[-16px] right-[-14px] w-5 h-5 text-white flex justify-center items-center bg-red-500 rounded-full">
+                            <h1 className=" font-bold ">{productData.length}</h1>
+                        </div>
+                        <ShoppingBagIcon />
+                    </div>
                     <User2Icon />
                 </div>
             </nav>
