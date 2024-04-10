@@ -13,7 +13,7 @@ const ProductCard = ({ productData }: { productData: IProduct }) =>
     const increasedPrice = price + (0.25 * price);
     return (
         <Link to={`/${productData.category.name}/${productData.categoryId}/${productData.name}/${productData.id}`}>
-            <Card className="  w-fit h-fit transition duration-700 hover:shadow-lg cursor-pointer">
+            <Card className="  w-fit h-fit transition duration-700 hover:shadow-lg cursor-pointer ">
                 <CardContent>
                     <img className=" rounded-md size-[300px] object-contain " src={productData.images[0].url} alt="" />
                 </CardContent>

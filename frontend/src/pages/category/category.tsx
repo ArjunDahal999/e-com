@@ -6,16 +6,15 @@ import { LoadingSpinner } from "@/components/ui/spinner"
 import { useEffect, useState } from "react"
 import { IProduct } from "@/types"
 import { getProducts } from "@/services/e-com-services"
+import Product from "./product"
 
 const Category = () =>
 {
     const { category, product, pid, cid } = useParams()
     const [isLoading, setIsLoading] = useState(false)
-
-    const gg = useProductsFilter({ categoryId: cid })
-
-
     const [productData, setProductData] = useState<IProduct[]>()
+
+
     useEffect(() =>
     {
         setIsLoading(true)
@@ -28,11 +27,17 @@ const Category = () =>
         setIsLoading(false)
     }, [cid])
 
-    if (category && cid)
+    if (category && cid && !product && !pid)
         return (
             <>
                 <Billboard categoryId={cid} />
                 {isLoading ? <LoadingSpinner /> : <ProductSection productsData={productData} />}
+            </>
+        )
+    if (category && cid && product && pid)
+        return (
+            <>
+              <Product productId={pid} />
             </>
         )
 

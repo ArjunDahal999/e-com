@@ -1,6 +1,5 @@
 
-import { ICategory, IGetProductsParams, IProduct } from "@/types/products";
-import { QueryFunctionContext } from "@tanstack/react-query";
+import { ICategory, IGetProductsParams, IProduct } from "@/types";
 import axios, { AxiosResponse } from "axios";
 
 //@ts-ignore
@@ -49,3 +48,18 @@ export const getCategoryById = async (cid: any): Promise<ICategory> =>
         return error?.response?.data;
     }
 };
+
+
+
+export const getProductById = async ( id:string): Promise<IProduct> =>
+    {
+        try
+        {
+            const response: AxiosResponse<IProduct> = await axios.get(`${API_URL}/products/${id}`);
+            return response.data;
+        } catch (error: any)
+        {
+            return error;
+        }
+    };
+    

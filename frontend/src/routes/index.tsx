@@ -7,6 +7,7 @@ import RegisterPage from "@/pages/auth/register";
 import ResetPasswordPage from "@/pages/auth/reset-password";
 import Category from "@/pages/category/category";
 import HomePage from "@/pages/home/home-page";
+import Product from "@/pages/product/product";
 import
 {
   createBrowserRouter,
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: ":product/:pid",
-            element: <h1>fsfsf</h1>
+            element: <Product/>
           }
         ]
       },
