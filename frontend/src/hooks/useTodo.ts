@@ -1,7 +1,7 @@
 
 import { TODO_QUERY_KEY } from "@/constants";
-import { addTodoTask, getTodoTask } from "@/services";
-import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import { getTodoTask } from "@/services";
+import { useQuery } from "@tanstack/react-query";
 
 // const queryClient = useQueryClient()
 

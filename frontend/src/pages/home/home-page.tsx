@@ -25,7 +25,7 @@ const HomePage = () =>
             <main className=" min-h-screen  ">
                 <HeroSection />
                 <MarqueeSection />
-                <ProductSection productsData={productsData} />
+                <ProductSection title="Our Products" productsData={productsData} />
             </main>
         </>
     )

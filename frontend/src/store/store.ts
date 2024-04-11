@@ -27,7 +27,7 @@ interface UserAuthState
 export const useAuthStore = create<UserAuthState>()(
     devtools(
         persist(
-            (set, get) => ({
+            (set) => ({
                 accessToken: undefined,
                 userData: undefined,
                 actions: {

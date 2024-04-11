@@ -1,6 +1,6 @@
 import { IProduct } from '@/types'
 import { Card, CardContent, CardFooter } from '../ui/card'
-import { Trash, XIcon } from 'lucide-react'
+import { Trash } from 'lucide-react'
 import { useCartStore } from '@/store/cart-store'
 
 const CartProduct = ({ productData }: { productData: IProduct }) =>
