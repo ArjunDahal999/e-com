@@ -9,6 +9,18 @@
   font-style: normal;
 }
 
+
+
+
+
+.scroll-cart-product::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.cart-scroller::-webkit-scrollbar {
+  width: 0.5em;
+}
+
 body::-webkit-scrollbar {
   width: 0.5em;
 }

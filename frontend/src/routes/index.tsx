@@ -5,9 +5,9 @@ import ForgotPassowordPage from "@/pages/auth/forgot-password";
 import LoginPage from "@/pages/auth/login";
 import RegisterPage from "@/pages/auth/register";
 import ResetPasswordPage from "@/pages/auth/reset-password";
+import Cart from "@/pages/cart/cart";
 import Category from "@/pages/category/category";
 import HomePage from "@/pages/home/home-page";
-import Product from "@/pages/product/product";
 import
 {
   createBrowserRouter,
@@ -24,13 +24,17 @@ export const router = createBrowserRouter([
         children: [
           {
             path: ":product/:pid",
-            element: <Product/>
+            element: <h1>...</h1>
           }
         ]
       },
       {
         path: "",
         element: <HomePage />
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       }
     ]
   },

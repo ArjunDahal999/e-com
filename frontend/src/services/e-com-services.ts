@@ -51,15 +51,28 @@ export const getCategoryById = async (cid: any): Promise<ICategory> =>
 
 
 
-export const getProductById = async ( id:string): Promise<IProduct> =>
+export const getProductById = async (id: string): Promise<IProduct> =>
+{
+    try
     {
-        try
-        {
-            const response: AxiosResponse<IProduct> = await axios.get(`${API_URL}/products/${id}`);
-            return response.data;
-        } catch (error: any)
-        {
-            return error;
-        }
-    };
-    
+        const response: AxiosResponse<IProduct> = await axios.get(`${API_URL}/products/${id}`);
+        return response.data;
+    } catch (error: any)
+    {
+        return error;
+    }
+};
+export const checkOut = async (pData: IProduct[]): Promise<any> =>
+{
+    try
+    {
+        const response: AxiosResponse<IProduct> = await axios.post(`${API_URL}/checkout`,
+            {
+                productIds: pData.map((p) => p.id),
+            });
+        return response.data;
+    } catch (error: any)
+    {
+        return error;
+    }
+};

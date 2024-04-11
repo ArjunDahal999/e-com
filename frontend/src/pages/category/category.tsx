@@ -12,7 +12,7 @@ const Category = () =>
     const { category, product, pid, cid } = useParams()
     const [isLoading, setIsLoading] = useState(false)
     const [productData, setProductData] = useState<IProduct[]>()
-    console.log(category, product, pid, cid)
+
 
     useEffect(() =>
     {

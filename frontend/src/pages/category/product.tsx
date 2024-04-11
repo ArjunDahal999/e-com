@@ -7,17 +7,17 @@ import { useCartStore } from '@/store/cart-store'
 const Product = ({ productId }: { productId: string }) =>
 {
     const { data: productData, isFetching } = useGetProductById(productId)
-    const { addToCart } = useCartStore()
+    const { addOrRemoveCartProduct, productsData } = useCartStore()
     const handelAddToCart = () =>
     {
-        addToCart(productData!)
+        addOrRemoveCartProduct(productData!)
     }
     if (isFetching)
     {
         return <div className=" h-[80vh] flex justify-center items-center"><LoadingSpinner /></div>
     }
     return (
-        <div className=' flex items-center gap-x-[15vw]  h-[70vh] justify-center  pt-20'>
+        <div className=' flex items-center gap-x-[15vw]  md:h-[70vh] justify-center max-sm:flex-col  pt-20'>
             <div className=" space-y-6">
                 <h1 className=' text-3xl font-bold'>{productData?.name}</h1>
                 <img width={400} className=' object-contain' src={productData?.images[0].url} />
@@ -33,7 +33,11 @@ const Product = ({ productId }: { productId: string }) =>
 
                 <h1>Category: {productData?.category.name}</h1>
                 <div className=" flex flex-col gap-y-5">
-                    <Button onClick={handelAddToCart} variant={'secondary'} className=' py-4'>Add to Cart </Button>
+                    <Button onClick={handelAddToCart} variant={'secondary'} className=' py-4'>
+                        {
+                            !productsData.find((p) => p.id == productId) ? "  Add to Cart" : "Remove From Cart"
+                        }
+                    </Button>
                     <Button variant={'secondary'} className=' py-4'>Buy Now </Button>
                 </div>
             </div>

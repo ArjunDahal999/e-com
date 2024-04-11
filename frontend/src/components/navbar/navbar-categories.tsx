@@ -10,6 +10,7 @@ interface NavBarCategoriesProps
 
 const NavBarCategories: React.FC<NavBarCategoriesProps> = ({ data }) =>
 {
+  console.log(data)
   return (
     <nav>
       <ul className="flex justify-center gap-x-10 pt-4 text-[1.1rem] max-sm:hidden">
@@ -24,7 +25,7 @@ const NavBarCategories: React.FC<NavBarCategoriesProps> = ({ data }) =>
                 </li>
               )}
             </NavLink>
-            {data.map((category) => (
+            {data?.map((category) => (
               <NavLink key={category.id} to={`/${category.name}/${category.id}`}>
                 {({ isActive }) => (
                   <li className={isActive ? "text-blue-500 font-bold" : ""}>
@@ -33,6 +34,13 @@ const NavBarCategories: React.FC<NavBarCategoriesProps> = ({ data }) =>
                 )}
               </NavLink>
             ))}
+            <NavLink to="/cart">
+              {({ isActive }) => (
+                <li className={isActive ? "text-blue-500 font-bold" : ""}>
+                  Cart
+                </li>
+              )}
+            </NavLink>
           </>
         )}
       </ul>
