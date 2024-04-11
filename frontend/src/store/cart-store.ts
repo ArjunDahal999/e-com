@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
-import { IProduct } from '@/types';
+import { IProduct } from '@/types/products';
 
 interface UserCartState
 {

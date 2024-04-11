@@ -1,5 +1,5 @@
 
-import { ITodoTask } from '@/types'
+import { ITodoTask } from '@/types/todo'
 
 
 const TodoContainer = ({ data }: { data: ITodoTask }) =>

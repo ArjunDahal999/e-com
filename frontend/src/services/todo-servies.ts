@@ -1,6 +1,6 @@
 
 
-import { IAddTodoTask, ITodoTask } from "@/types";
+import { IAddTodoTask, ITodoTask } from "@/types/todo";
 import axios from "axios";
 //@ts-ignore
 const API_URL = import.meta.env.VITE_API_URL
