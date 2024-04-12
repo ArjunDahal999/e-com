@@ -1,7 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 import { LoadingSpinner } from "../ui/spinner";
-import { ICategory } from "@/types/products";
+import { ICategory } from "@/t/products";
 
 interface NavBarCategoriesProps
 {

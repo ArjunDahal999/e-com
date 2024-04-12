@@ -1,7 +1,7 @@
 
 import { PRODUCT_QUERY_KEY } from "@/constants";
 import { getProductById, getProducts } from "@/services/e-com-services";
-import { IGetProductsParams } from "@/types/products";
+import { IGetProductsParams } from "@/t/products";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 

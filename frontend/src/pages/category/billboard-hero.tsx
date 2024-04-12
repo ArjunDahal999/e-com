@@ -1,4 +1,4 @@
-import { ICategory } from '@/types/products'
+import { ICategory } from '@/t/products'
 
 
 const BillboardHero = ({ categoryData }: { categoryData: ICategory }) =>

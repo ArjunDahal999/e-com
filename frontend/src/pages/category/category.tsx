@@ -3,7 +3,7 @@ import Billboard from "./bilboard"
 import ProductSection from "@/components/product/product-section"
 import { LoadingSpinner } from "@/components/ui/spinner"
 import { useEffect, useState } from "react"
-import { IProduct } from "@/types/products"
+import { IProduct } from "@/t/products"
 import { getProducts } from "@/services/e-com-services"
 import Product from "./product"
 

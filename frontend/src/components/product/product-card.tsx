@@ -4,7 +4,7 @@ import
     CardContent,
     CardFooter,
 } from "@/components/ui/card"
-import { IProduct } from "@/types/products"
+import { IProduct } from "@/t/products"
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ productData }: { productData: IProduct }) =>

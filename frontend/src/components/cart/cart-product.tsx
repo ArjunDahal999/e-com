@@ -2,7 +2,7 @@
 import { Card, CardContent, CardFooter } from '../ui/card'
 import { Trash } from 'lucide-react'
 import { useCartStore } from '@/store/cart-store'
-import { IProduct } from '@/types/products'
+import { IProduct } from '@/t/products'
 
 const CartProduct = ({ productData }: { productData: IProduct }) =>
 {

@@ -1,4 +1,4 @@
-import { IProduct } from "@/types/products"
+import { IProduct } from "@/t/products"
 import ProductCard from "./product-card"
 
 

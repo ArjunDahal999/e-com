@@ -1,5 +1,5 @@
 
-import { ICategory, IGetProductsParams, IProduct } from "@/types/products";
+import { ICategory, IGetProductsParams, IProduct } from "@/t/products";
 import axios, { AxiosResponse } from "axios";
 
 //@ts-ignore
