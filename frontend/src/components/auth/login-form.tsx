@@ -23,7 +23,7 @@ import { useAuthStore } from "@/store/store"
 
 const LoginForm = () =>
 {
-    const authStore = useAuthStore()
+    const { actions } = useAuthStore()
     const navigate = useNavigate()
     const [errorMessage, setErrorMessage] = useState('')
     const [successMessage, setSuccessMessage] = useState('')
@@ -42,13 +42,18 @@ const LoginForm = () =>
         {
             if (data.success)
             {
-                form.reset()
-                setSuccessMessage(data.message)
-                console.log(data)
-                authStore.actions.setUserData(data.user)
-                authStore.actions.setAccessToken(data.token)
-                navigate('/')
-                setErrorMessage('')
+                try
+                {
+                    form.reset()
+                    console.log(data)
+                    actions.setUserData(data.user)
+                    navigate('/')
+                    setSuccessMessage(data.message)
+                    setErrorMessage('')
+                } catch (e: any)
+                {
+                    console.log(e)
+                }
             } else
             {
                 console.log(data)

@@ -19,7 +19,7 @@ interface UserAuthState
     userData: IUserData | any
     actions: {
         setAccessToken: (accessToken: string | undefined) => void;
-        setUserData: (data: any) => void;
+        setUserData: (data: IUserData) => void;
         logout: () => void;
     }
 }
@@ -38,11 +38,10 @@ export const useAuthStore = create<UserAuthState>()(
                         });
                     },
                     logout: () =>
-                        set({
-                            accessToken: undefined,
-                            userData: undefined,
-                        }),
-                    setUserData: (data) =>
+                    {
+                        set({ accessToken: undefined, userData: undefined });
+                    },
+                    setUserData: (data: IUserData) =>
                     {
                         set({
                             userData: data

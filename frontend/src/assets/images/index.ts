@@ -6,5 +6,7 @@ import Logitech from './logitech.png'
 import Rog from './rog.png'
 import Samsung from './samsung.png'
 import Lg from './lg.png'
+import WhiteLogo from './white.png'
+import BlackLogo from './black.png'
 
-export { BagGif, OmMan, Apple, Dell, Rog, Lg, Logitech, Samsung }
+export { BagGif, OmMan, Apple, Dell, Rog, Lg, Logitech, Samsung, WhiteLogo, BlackLogo }
