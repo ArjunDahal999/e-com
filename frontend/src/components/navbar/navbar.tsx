@@ -1,5 +1,5 @@
 import { useCategory } from "@/hooks/useCategory"
-import { SearchIcon, User2Icon } from "lucide-react"
+import { SearchIcon } from "lucide-react"
 import NavBarCategories from "./navbar-categories"
 import { useCartStore } from "@/store/cart-store"
 import { CartSlider } from "../cart/cart-slider"

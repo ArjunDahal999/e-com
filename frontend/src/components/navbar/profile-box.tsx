@@ -1,5 +1,5 @@
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "../ui/drop-down-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "../ui/drop-down-menu"
 import { useAuthStore } from "@/store/store"
 import { LogOutIcon, MoonIcon, SunIcon, User2Icon } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
